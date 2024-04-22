@@ -10,7 +10,7 @@ def simpson_method(func, left, right, initial_n, accuracy):
     x_values = [left + i * h for i in range(n + 1)]
     y_values = [func(x) for x in x_values]
 
-    integral = h / 3 * (y_values[0] + 4 * sum(y_values[1:n-1:2]) + 2 * sum(y_values[2:n-2:2]) + y_values[n])
+    integral = h / 3 * (y_values[0] + 4 * sum(y_values[1:n:2]) + 2 * sum(y_values[2:n-1:2]) + y_values[n])
 
     integral_prev = integral
     table.append([iter_count, n, integral, " "])
@@ -23,7 +23,7 @@ def simpson_method(func, left, right, initial_n, accuracy):
         x_values = [left + i * h for i in range(n + 1)]
         y_values = [func(x) for x in x_values]
 
-        integral = h / 3 * (y_values[0] + 4 * sum(y_values[1:n-1:2]) + 2 * sum(y_values[2:n-2:2]) + y_values[n])
+        integral = h / 3 * (y_values[0] + 4 * sum(y_values[1:n:2]) + 2 * sum(y_values[2:n-1:2]) + y_values[n])
 
         runge = abs((integral - integral_prev) / (2 ** 4 - 1))
         table.append([iter_count, n, integral, runge])
